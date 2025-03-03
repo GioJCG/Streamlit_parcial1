@@ -89,3 +89,18 @@ ax3.set_ylabel("Rating")
 
 st.header("Grafica de dispersion de el rating")
 st.pyplot(fig3)
+
+
+# Gráfica de películas por fecha
+st.header("Cantidad de películas por fecha")
+#Agrupar la cantidad de peliculas
+
+peliculas_fecha = data.groupby('date').size().reset_index(name='count')
+
+fig4, ax4 = plt.subplots()
+ax4.bar(peliculas_fecha['date'], peliculas_fecha['count'])
+ax4.set_xlabel("Fecha")
+ax4.set_ylabel("Películas")
+ax4.set_title("Cantidad de películas estrenadas por fecha")
+
+st.pyplot(fig4)
